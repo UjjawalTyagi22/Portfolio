@@ -85,7 +85,6 @@
       box-shadow: 4px 4px 0 var(--ink);
     }
 
-    /* Mobile Menu Toggle */
     .menu-toggle {
       display: none;
       background: none;
@@ -292,7 +291,6 @@
       color: var(--ink-light);
     }
 
-    /* Image placeholder */
     .img-placeholder {
       position: relative;
       border: 2px solid var(--ink);
@@ -379,10 +377,6 @@
       font-weight: 700;
       position: relative;
       display: inline-block;
-    }
-
-    .section-title::after {
-      display: none;
     }
 
     .section-line {
@@ -507,31 +501,30 @@
       background: repeating-linear-gradient(-45deg, transparent, transparent 2px, rgba(232, 98, 58, 0.25) 2px, rgba(232, 98, 58, 0.25) 3px);
     }
 
-    /* Coding platform cards */
-.coding-platform-card {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  padding: 8px 18px;
-  border: 2px solid var(--ink);
-  box-shadow: var(--shadow-sm);
-  background: var(--paper);
-  text-decoration: none;
-  color: var(--ink);
-  font-size: 1rem;
-  transition: transform 0.15s, box-shadow 0.15s;
-}
+    .coding-platform-card {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 8px 18px;
+      border: 2px solid var(--ink);
+      box-shadow: var(--shadow-sm);
+      background: var(--paper);
+      text-decoration: none;
+      color: var(--ink);
+      font-size: 1rem;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
 
-.coding-platform-card:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 4px 4px 0 var(--ink);
-}
+    .coding-platform-card:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 4px 4px 0 var(--ink);
+    }
 
-.coding-platform-card img {
-  width: 24px;
-  height: 24px;
-  object-fit: contain;
-}
+    .coding-platform-card img {
+      width: 24px;
+      height: 24px;
+      object-fit: contain;
+    }
 
     .tools {
       display: flex;
@@ -601,6 +594,13 @@
     .project-img {
       height: 160px;
       border-bottom: 2px solid var(--ink);
+      overflow: hidden;
+    }
+
+    .project-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .project-body {
@@ -758,32 +758,6 @@
       line-height: 1.6;
     }
 
-    .cert-card {
-      border: 2px solid var(--ink);
-      padding: 0.8rem 1rem;
-      box-shadow: var(--shadow-sm);
-      background: var(--paper);
-      margin-bottom: 1rem;
-      display: flex;
-      gap: 0.8rem;
-      align-items: start;
-    }
-
-    .cert-icon {
-      font-size: 1.4rem;
-      line-height: 1;
-    }
-
-    .cert-title {
-      font-size: 1rem;
-      font-weight: 700;
-    }
-
-    .cert-issuer {
-      font-size: 0.8rem;
-      color: var(--ink-light);
-    }
-
     /* ===== CERTIFICATION BOX STYLING ===== */
     .cert-full-card {
       border: 2px solid #000;
@@ -830,19 +804,6 @@
       margin-top: 0.6rem;
     }
 
-    .proj-link.primary {
-      border: 1px solid #000;
-      padding: 0.4rem 0.8rem;
-      text-decoration: none;
-      display: inline-block;
-      transition: all 0.2s ease;
-    }
-
-    .proj-link.primary:hover {
-      background: #000;
-      color: #fff;
-    }
-
     /* ---- CONTACT ---- */
     .contact-grid {
       display: grid;
@@ -886,32 +847,6 @@
       font-size: 1rem;
     }
 
-    .avail-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      border: 2px solid var(--accent2);
-      padding: 6px 14px;
-      font-size: 0.8rem;
-      background: #d4edda;
-      box-shadow: 2px 2px 0 var(--accent2);
-      margin-top: 0.5rem;
-    }
-
-    .dot-pulse {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--accent2);
-      animation: pulse 1.5s infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1 }
-      50% { opacity: 0.4 }
-    }
-
-    /* Contact Form */
     .sketch-form {
       display: flex;
       flex-direction: column;
@@ -968,6 +903,12 @@
       box-shadow: 5px 5px 0 var(--accent);
     }
 
+    .btn-submit:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
     .success-msg {
       display: none;
       border: 2px solid var(--accent2);
@@ -976,7 +917,16 @@
       font-size: 1.1rem;
       box-shadow: var(--shadow-sm);
       text-align: center;
-      transition: opacity 0.3s ease;
+    }
+
+    .error-msg {
+      display: none;
+      border: 2px solid #dc3545;
+      background: #f8d7da;
+      padding: 1rem;
+      font-size: 1rem;
+      box-shadow: var(--shadow-sm);
+      text-align: center;
     }
 
     /* ---- FOOTER ---- */
@@ -1086,9 +1036,9 @@
       <li><a href="#certifications">Certifications</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-   <div class="nav-btns">
-      <a href="Ujjawal_Tyagi_Resume.pdf" target="_blank" class="btn-sketch filled" aria-label="View Resume">RESUME</a>
-      <a href="#contact" class="btn-sketch primary" aria-label="Hire me">HIRE ME</a>
+    <div class="nav-btns">
+      <a href="Ujjawal_Tyagi_Resume.pdf" target="_blank" class="btn-sketch filled">RESUME</a>
+      <a href="#contact" class="btn-sketch primary">HIRE ME</a>
     </div>
     <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
       <svg viewBox="0 0 24 24">
@@ -1103,9 +1053,7 @@
       <div class="hero-tag">HELLO, WORLD! I'M</div>
       <h1 class="hero-name">Ujjawal Tyagi</h1>
       <div class="hero-role"><span id="typewriter"></span><span class="cursor"></span></div>
-      <p class="hero-bio">B.Tech CSE (AI&ML) student at KIET Group of Institutions, developing full-stack web solutions,
-        exploring
-        Generative AI, and grinding competitive coding. Based in Ghaziabad, UP.</p>
+      <p class="hero-bio">B.Tech CSE (AI&ML) student at KIET Group of Institutions, developing full-stack web solutions, exploring Generative AI, and grinding competitive coding. Based in Ghaziabad, UP.</p>
       <div class="hero-btns">
         <a href="#projects" class="btn-hero">VIEW MY WORK</a>
         <a href="#contact" class="btn-hero secondary">GET IN TOUCH</a>
@@ -1143,14 +1091,9 @@
       <div class="section-line"></div>
     </div>
 
-    <!-- ROW 1: Quick Facts (left) + Bio text (right) -->
     <div class="about-row" style="display:grid; grid-template-columns:1fr 1.6fr; gap:2.5rem; align-items:start; margin-bottom:2rem;">
-
-      <!-- Quick Facts -->
       <div class="quick-facts" style="margin-bottom:0;">
-        <h3 style="background:none; border:none; box-shadow:none; padding:0; font-size:1.1rem; font-weight:700; display:block; margin-bottom:0.5rem;">
-          Quick Facts
-        </h3>
+        <h3 style="background:none; border:none; box-shadow:none; padding:0; font-size:1.1rem; font-weight:700; display:block; margin-bottom:0.5rem;">Quick Facts</h3>
         <div style="border-bottom:1.5px solid var(--ink); margin-bottom:0.8rem;"></div>
         <div class="fact-row"><span class="fact-key">Name:</span><span style="font-weight:700">Ujjawal Tyagi</span></div>
         <div class="fact-row"><span class="fact-key">Role:</span><span style="font-weight:700">Full-Stack Developer</span></div>
@@ -1159,36 +1102,18 @@
         <div class="fact-row"><span class="fact-key">Degree:</span><span style="font-weight:700">B.Tech CSE (AI&ML)</span></div>
         <div class="fact-row"><span class="fact-key">Year:</span><span style="font-weight:700">3rd Year</span></div>
         <div class="fact-row"><span class="fact-key">Availability:</span><span style="font-weight:700">Open to Work</span></div>
-        <div style="margin-top:1rem;">
-          <!-- <div class="avail-badge" style="margin-top:0;">
-            <div class="dot-pulse"></div>
-            Available for Opportunities
-          </div> -->
-        </div>
       </div>
 
-      <!-- Bio Text -->
       <div class="fade-in">
-        <p class="about-text">I'm Ujjawal Tyagi, a B.Tech CSE (AI&amp;ML) student at KIET Group of Institutions, based
-          in Ghaziabad, Uttar Pradesh. I love crafting full-stack web applications and diving deep into the world of
-          Generative AI and Machine Learning.</p>
-        <p class="about-text">I'm efficient in C++ and enjoy competitive coding on platforms like LeetCode, CodeChef,
-          and Codeforces. I also serve as the PR Head of the NextGen Supercomputing Community, where I help bridge tech
-          and people.</p>
-        <p class="about-text" style="margin-bottom:0;">Outside of coding, you'll find me listening to music,
-          planning travel adventures, exploring AI research, or editing videos. I enjoy diving deep into topics that
-          spark my curiosity and expressing ideas visually.</p>
+        <p class="about-text">I'm Ujjawal Tyagi, a B.Tech CSE (AI&amp;ML) student at KIET Group of Institutions, based in Ghaziabad, Uttar Pradesh. I love crafting full-stack web applications and diving deep into the world of Generative AI and Machine Learning.</p>
+        <p class="about-text">I'm efficient in C++ and enjoy competitive coding on platforms like LeetCode, CodeChef, and Codeforces. I also serve as the PR Head of the NextGen Supercomputing Community, where I help bridge tech and people.</p>
+        <p class="about-text" style="margin-bottom:0;">Outside of coding, you'll find me listening to music, planning travel adventures, exploring AI research, or editing videos.</p>
       </div>
     </div>
 
-    <!-- ROW 2: Interests (left) + Buttons (right) -->
     <div class="about-row" style="display:grid; grid-template-columns:1fr 1.6fr; gap:2.5rem; align-items:center;">
-
-      <!-- Interests & Hobbies -->
       <div class="quick-facts fade-in" style="margin-bottom:0;">
-        <h3 style="background:none; border:none; box-shadow:none; padding:0; font-size:1rem; font-weight:700; display:block; margin-bottom:0.8rem;">
-          Interests &amp; Hobbies
-        </h3>
+        <h3 style="background:none; border:none; box-shadow:none; padding:0; font-size:1rem; font-weight:700; display:block; margin-bottom:0.8rem;">Interests &amp; Hobbies</h3>
         <div class="tags">
           <span class="tag">Problem Solving</span>
           <span class="tag">Competitive Coding</span>
@@ -1199,23 +1124,14 @@
         </div>
       </div>
 
-      <!-- CTA Buttons + blurb -->
       <div class="fade-in" style="display:flex; flex-direction:column; gap:1rem;">
-        <p style="font-size:1 rem; font-weight: bold; color:var(--ink-light); line-height:1.7;">Actively looking for internship opportunities in Full Stack Development, AI/ML, or related fields. Open to remote or on-site roles.</p>
-      <div style="display:flex; gap:1rem; flex-wrap:wrap;">
-        <a href="Ujjawal_Tyagi_Resume.pdf" target="_blank" class="btn-hero" aria-label="View Resume">DOWNLOAD RESUME</a>
-        <a href="#contact" class="btn-hero secondary" aria-label="Contact Ujjawal">LET'S TALK</a>
-      </div>
-      </div>
-    </div>
-
-    <!-- Photo placeholder (commented out — uncomment to restore):
-    <div class="about-img-wrap">
-      <div class="img-placeholder">
-        <img src="ujjawal.jpeg" alt="About Me Photo">
+        <p style="font-size:1rem; font-weight:bold; color:var(--ink-light); line-height:1.7;">Actively looking for internship opportunities in Full Stack Development, AI/ML, or related fields. Open to remote or on-site roles.</p>
+        <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+          <a href="Ujjawal_Tyagi_Resume.pdf" target="_blank" class="btn-hero">DOWNLOAD RESUME</a>
+          <a href="#contact" class="btn-hero secondary">LET'S TALK</a>
+        </div>
       </div>
     </div>
-    -->
   </section>
 
   <!-- SKILLS -->
@@ -1266,7 +1182,7 @@
       </div>
     </div>
     <div class="tools fade-in" style="margin-top:2.5rem">
-      <span style="font-size:0.8rem; letter-spacing:0.05em; font-weight: bold; padding-right:0.5rem; border-right:2px solid var(--ink); margin-right:0.5rem;">TOOLS</span>
+      <span style="font-size:0.8rem; letter-spacing:0.05em; font-weight:bold; padding-right:0.5rem; border-right:2px solid var(--ink); margin-right:0.5rem;">TOOLS</span>
       <span class="tool-pill">Git & GitHub</span>
       <span class="tool-pill">VS Code</span>
       <span class="tool-pill">MySQL</span>
@@ -1276,29 +1192,22 @@
       <span class="tool-pill">MongoDB</span>
       <span class="tool-pill">Colab</span>
     </div>
-<!-- CODING PLATFORMS -->
-<div class="fade-in" style="margin-top:2.5rem; display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap;">
-  <span style="font-size:0.8rem; letter-spacing:0.05em; padding-right:0.5rem; font-weight:bold; border-right:2px solid var(--ink);">CODING PLATFORMS</span>
-
-  <a href="https://leetcode.com/u/UjjawalTyagi22/" target="_blank" class="coding-platform-card" aria-label="LeetCode Profile">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png" alt="LeetCode" />
-    <span>LeetCode</span>
-  </a>
-
-  <a href="https://www.codechef.com/users/ujjawal27" target="_blank" class="coding-platform-card" aria-label="CodeChef Profile">
-    <img src="https://cdn.codechef.com/images/cc-logo.svg" alt="CodeChef" />
-    <span>CodeChef</span>
-  </a>
-
-  <a href="https://codeforces.com/profile/ujjawal_27" target="_blank" class="coding-platform-card" aria-label="Codeforces Profile">
-    <img src="https://codeforces.org/s/0/favicon-96x96.png" alt="Codeforces" />
-    <span>Codeforces</span>
-  </a>
-</div>
-      </div>
+    <div class="fade-in" style="margin-top:2.5rem; display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap;">
+      <span style="font-size:0.8rem; letter-spacing:0.05em; padding-right:0.5rem; font-weight:bold; border-right:2px solid var(--ink);">CODING PLATFORMS</span>
+      <a href="https://leetcode.com/u/UjjawalTyagi22/" target="_blank" class="coding-platform-card">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png" alt="LeetCode" />
+        <span>LeetCode</span>
+      </a>
+      <a href="https://www.codechef.com/users/ujjawal27" target="_blank" class="coding-platform-card">
+        <img src="https://cdn.codechef.com/images/cc-logo.svg" alt="CodeChef" />
+        <span>CodeChef</span>
+      </a>
+      <a href="https://codeforces.com/profile/ujjawal_27" target="_blank" class="coding-platform-card">
+        <img src="https://codeforces.org/s/0/favicon-96x96.png" alt="Codeforces" />
+        <span>Codeforces</span>
+      </a>
     </div>
   </section>
-
 
   <!-- PROJECTS -->
   <section id="projects">
@@ -1313,6 +1222,7 @@
       <button class="filter-btn" data-filter="web">Web</button>
     </div>
     <div class="projects-grid">
+
       <div class="project-card fade-in" data-cat="ai web">
         <div class="project-img img-placeholder">
           <svg viewBox="0 0 300 160" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
@@ -1334,8 +1244,8 @@
             <span class="project-tag">Three.js</span>
           </div>
           <div class="project-links">
-            <a href="#" class="proj-link primary">GitHub</a>
-            <a href="#" class="proj-link">Live Demo</a>
+            <a href="#" class="proj-link primary" target="_blank">GitHub</a>
+            <a href="#" class="proj-link" target="_blank">Live Demo</a>
           </div>
         </div>
       </div>
@@ -1361,17 +1271,14 @@
             <span class="project-tag">MongoDB</span>
           </div>
           <div class="project-links">
-            <a href="#" class="proj-link primary">GitHub</a>
-            <!-- <a href="#" class="proj-link">Live Demo</a> -->
+            <a href="#" class="proj-link primary" target="_blank">GitHub</a>
           </div>
         </div>
       </div>
 
-      <div class="project-card fade-in" data-cat="ai">
-        <div class="project-img img-placeholder">
-<div class="project-img">
-  <img src="drive logo.png" alt="DRiVE Project Thumbnail" style="width:100%; height:100%; object-fit:cover;" />
-</div>
+      <div class="project-card fade-in" data-cat="ai web">
+        <div class="project-img">
+          <img src="drive logo.png" alt="DRiVE Project Thumbnail" />
         </div>
         <div class="project-body">
           <div class="project-header">
@@ -1383,13 +1290,12 @@
             <span class="project-tag">React.js</span>
             <span class="project-tag">Node.js</span>
             <span class="project-tag">MySQL</span>
-            <span class="project-tag">JWT Auth</span>                       
-
+            <span class="project-tag">JWT Auth</span>
           </div>
-<div class="project-links">
-  <a href="https://github.com/UjjawalTyagi22/DRiVE" class="proj-link primary" target="_blank">GitHub</a>
-  <a href="https://d-ri-ve.vercel.app" class="proj-link" target="_blank">Live Demo</a>
-</div>
+          <div class="project-links">
+            <a href="https://github.com/UjjawalTyagi22/DRiVE" class="proj-link primary" target="_blank">GitHub</a>
+            <a href="https://d-ri-ve.vercel.app" class="proj-link" target="_blank">Live Demo</a>
+          </div>
         </div>
       </div>
 
@@ -1413,8 +1319,8 @@
             <span class="project-tag">Chart.js</span>
           </div>
           <div class="project-links">
-            <a href="#" class="proj-link primary">GitHub</a>
-            <a href="#" class="proj-link">Live Demo</a>
+            <a href="#" class="proj-link primary" target="_blank">GitHub</a>
+            <a href="#" class="proj-link" target="_blank">Live Demo</a>
           </div>
         </div>
       </div>
@@ -1439,15 +1345,14 @@
             <span class="project-tag">Data Structures</span>
           </div>
           <div class="project-links">
-            <a href="#" class="proj-link primary">GitHub</a>
+            <a href="#" class="proj-link primary" target="_blank">GitHub</a>
           </div>
         </div>
       </div>
+
     </div>
   </section>
 
-
-  <!-- EXPERIENCE -->
   <!-- EDUCATION -->
   <section id="experience">
     <div class="section-header">
@@ -1464,8 +1369,7 @@
               <div class="timeline-date">2023 – Present</div>
               <div class="timeline-title">B.Tech CSE (AI&amp;ML) — 3rd Year</div>
               <div class="timeline-org">KIET Group of Institutions · AKTU · Ghaziabad</div>
-              <div class="timeline-desc">Pursuing B.Tech with specialization in Artificial Intelligence &amp; Machine
-                Learning. Actively building projects in full-stack development, GenAI, and competitive programming.</div>
+              <div class="timeline-desc">Pursuing B.Tech with specialization in Artificial Intelligence &amp; Machine Learning. Actively building projects in full-stack development, GenAI, and competitive programming.</div>
             </div>
           </div>
           <div class="timeline-item fade-in">
@@ -1491,8 +1395,7 @@
     </div>
   </section>
 
-
-  <!-- LICENSES & CERTIFICATIONS -->
+  <!-- CERTIFICATIONS -->
   <section id="certifications">
     <div class="section-header">
       <span class="section-num">05</span>
@@ -1503,167 +1406,84 @@
       <div class="projects-grid" style="gap:1.2rem;">
 
         <div class="cert-full-card">
-          <div class="cert-full-body">
-            <div class="cert-full-header">
-              <div class="cert-full-num">#1</div>
-              <div>
-                <div class="cert-full-title">AWS Academy Graduate - Generative AI Foundations</div>
-                <div class="cert-full-issuer">Amazon Web Services (AWS)</div>
-              </div>
-            </div>
-            <div class="cert-full-meta">
-              <span class="cert-date">Issued: Sep 2025</span>
-              <span class="cert-badge">No Expiry</span>
-            </div>
-            <div class="cert-skills-row">
-              <span class="project-tag">Generative AI</span>
-              <span class="project-tag">Machine Learning</span>
-            </div>
-            <div class="project-links" style="margin-top:0.8rem;">
-              <a href="#" class="proj-link primary">Show Credential</a>
-            </div>
+          <div class="cert-full-header">
+            <div class="cert-full-num">#1</div>
+            <div class="cert-full-title">AWS Academy Graduate - Generative AI Foundations</div>
+            <div class="cert-full-issuer">Amazon Web Services (AWS)</div>
           </div>
+          <div class="cert-full-meta"><span>Issued: Sep 2025</span><span>No Expiry</span></div>
+          <div class="cert-skills-row"><span class="project-tag">Generative AI</span> <span class="project-tag">Machine Learning</span></div>
+          <div class="project-links" style="margin-top:0.8rem;"><a href="#" class="proj-link primary">Show Credential</a></div>
         </div>
 
         <div class="cert-full-card">
-          <div class="cert-full-body">
-            <div class="cert-full-header">
-              <div class="cert-full-num">#2</div>
-              <div>
-                <div class="cert-full-title">Oracle Certified AI Foundations Associate</div>
-                <div class="cert-full-issuer">Oracle</div>
-              </div>
-            </div>
-            <div class="cert-full-meta">
-              <span class="cert-date">Issued: Sep 2025</span>
-              <span class="cert-badge">No Expiry</span>
-            </div>
-            <div class="cert-skills-row">
-              <span class="project-tag">Artificial Intelligence</span>
-            </div>
-            <div class="project-links" style="margin-top:0.8rem;">
-              <a href="#" class="proj-link primary">Show Credential</a>
-            </div>
+          <div class="cert-full-header">
+            <div class="cert-full-num">#2</div>
+            <div class="cert-full-title">Oracle Certified AI Foundations Associate</div>
+            <div class="cert-full-issuer">Oracle</div>
           </div>
+          <div class="cert-full-meta"><span>Issued: Sep 2025</span><span>No Expiry</span></div>
+          <div class="cert-skills-row"><span class="project-tag">Artificial Intelligence</span></div>
+          <div class="project-links" style="margin-top:0.8rem;"><a href="#" class="proj-link primary">Show Credential</a></div>
         </div>
 
         <div class="cert-full-card">
-          <div class="cert-full-body">
-            <div class="cert-full-header">
-              <div class="cert-full-num">#3</div>
-              <div>
-                <div class="cert-full-title">Career Essentials in Generative AI by Microsoft and LinkedIn</div>
-                <div class="cert-full-issuer">Microsoft</div>
-              </div>
-            </div>
-            <div class="cert-full-meta">
-              <span class="cert-date">Issued: May 2025</span>
-              <span class="cert-badge">No Expiry</span>
-            </div>
-            <div class="cert-skills-row">
-              <span class="project-tag">Prompt Engineering</span>
-              <span class="project-tag">Responsible AI</span>
-            </div>
-            <div class="project-links" style="margin-top:0.8rem;">
-              <a href="#" class="proj-link primary">Show Credential</a>
-            </div>
+          <div class="cert-full-header">
+            <div class="cert-full-num">#3</div>
+            <div class="cert-full-title">Career Essentials in Generative AI by Microsoft and LinkedIn</div>
+            <div class="cert-full-issuer">Microsoft</div>
           </div>
+          <div class="cert-full-meta"><span>Issued: May 2025</span><span>No Expiry</span></div>
+          <div class="cert-skills-row"><span class="project-tag">Prompt Engineering</span> <span class="project-tag">Responsible AI</span></div>
+          <div class="project-links" style="margin-top:0.8rem;"><a href="#" class="proj-link primary">Show Credential</a></div>
         </div>
 
         <div class="cert-full-card">
-          <div class="cert-full-body">
-            <div class="cert-full-header">
-              <div class="cert-full-num">#4</div>
-              <div>
-                <div class="cert-full-title">C++ Programming Professional Certificate by OpenEDG C++ Institute</div>
-                <div class="cert-full-issuer">C++ Institute</div>
-              </div>
-            </div>
-            <div class="cert-full-meta">
-              <span class="cert-date">Issued: May 2025</span>
-              <span class="cert-badge">No Expiry</span>
-            </div>
-            <div class="cert-skills-row">
-              <span class="project-tag">Data Structure</span>
-              <span class="project-tag">C++</span>
-            </div>
-            <div class="project-links" style="margin-top:0.8rem;">
-              <a href="#" class="proj-link primary">Show Credential</a>
-            </div>
+          <div class="cert-full-header">
+            <div class="cert-full-num">#4</div>
+            <div class="cert-full-title">C++ Programming Professional Certificate by OpenEDG C++ Institute</div>
+            <div class="cert-full-issuer">C++ Institute</div>
           </div>
+          <div class="cert-full-meta"><span>Issued: May 2025</span><span>No Expiry</span></div>
+          <div class="cert-skills-row"><span class="project-tag">Data Structure</span> <span class="project-tag">C++</span></div>
+          <div class="project-links" style="margin-top:0.8rem;"><a href="#" class="proj-link primary">Show Credential</a></div>
         </div>
 
         <div class="cert-full-card">
-          <div class="cert-full-body">
-            <div class="cert-full-header">
-              <div class="cert-full-num">#5</div>
-              <div>
-                <div class="cert-full-title">Data Analysis Using Python</div>
-                <div class="cert-full-issuer">IBM</div>
-              </div>
-            </div>
-            <div class="cert-full-meta">
-              <span class="cert-date">Issued: Jul 2025</span>
-              <span class="cert-badge">No Expiry</span>
-            </div>
-            <div class="cert-skills-row">
-              <span class="project-tag">Data Analysis</span>
-              <span class="project-tag">Python programming</span>
-            </div>
-            <div class="project-links" style="margin-top:0.8rem;">
-              <a href="#" class="proj-link primary">Show Credential</a>
-            </div>
+          <div class="cert-full-header">
+            <div class="cert-full-num">#5</div>
+            <div class="cert-full-title">Data Analysis Using Python</div>
+            <div class="cert-full-issuer">IBM</div>
           </div>
+          <div class="cert-full-meta"><span>Issued: Jul 2025</span><span>No Expiry</span></div>
+          <div class="cert-skills-row"><span class="project-tag">Data Analysis</span> <span class="project-tag">Python</span></div>
+          <div class="project-links" style="margin-top:0.8rem;"><a href="#" class="proj-link primary">Show Credential</a></div>
         </div>
 
         <div class="cert-full-card">
-          <div class="cert-full-body">
-            <div class="cert-full-header">
-              <div class="cert-full-num">#6</div>
-              <div>
-                <div class="cert-full-title">Cybersecurity Foundation</div>
-                <div class="cert-full-issuer">Palo Alto Networks</div>
-              </div>
-            </div>
-            <div class="cert-full-meta">
-              <span class="cert-date">Issued: May 2025</span>
-              <span class="cert-badge">No Expiry</span>
-            </div>
-            <div class="cert-skills-row">
-              <span class="project-tag">Cybersecurity</span>
-            </div>
-            <div class="project-links" style="margin-top:0.8rem;">
-              <a href="#" class="proj-link primary">Show Credential</a>
-            </div>
+          <div class="cert-full-header">
+            <div class="cert-full-num">#6</div>
+            <div class="cert-full-title">Cybersecurity Foundation</div>
+            <div class="cert-full-issuer">Palo Alto Networks</div>
           </div>
+          <div class="cert-full-meta"><span>Issued: May 2025</span><span>No Expiry</span></div>
+          <div class="cert-skills-row"><span class="project-tag">Cybersecurity</span></div>
+          <div class="project-links" style="margin-top:0.8rem;"><a href="#" class="proj-link primary">Show Credential</a></div>
         </div>
 
         <div class="cert-full-card">
-          <div class="cert-full-body">
-            <div class="cert-full-header">
-              <div class="cert-full-num">#7</div>
-              <div>
-                <div class="cert-full-title">Introduction to Web Design and Development</div>
-                <div class="cert-full-issuer">LinkedIn</div>
-              </div>
-            </div>
-            <div class="cert-full-meta">
-              <span class="cert-date">Issued: Dec 2024</span>
-              <span class="cert-badge">No Expiry</span>
-            </div>
-            <div class="cert-skills-row">
-              <span class="project-tag">Web Development</span>
-            </div>
-            <div class="project-links" style="margin-top:0.8rem;">
-              <a href="#" class="proj-link primary">Show Credential</a>
-            </div>
+          <div class="cert-full-header">
+            <div class="cert-full-num">#7</div>
+            <div class="cert-full-title">Introduction to Web Design and Development</div>
+            <div class="cert-full-issuer">LinkedIn</div>
           </div>
+          <div class="cert-full-meta"><span>Issued: Dec 2024</span><span>No Expiry</span></div>
+          <div class="cert-skills-row"><span class="project-tag">Web Development</span></div>
+          <div class="project-links" style="margin-top:0.8rem;"><a href="#" class="proj-link primary">Show Credential</a></div>
         </div>
 
       </div>
-      <div style="text-align:center; margin-top:1.5rem; font-size:1.1rem; color:var(--ink-light); font-weight:700; letter-spacing:0.05em;">
-        and many more ...
-      </div>
+      <div style="text-align:center; margin-top:1.5rem; font-size:1.1rem; color:var(--ink-light); font-weight:700; letter-spacing:0.05em;">and many more ...</div>
     </div>
   </section>
 
@@ -1676,24 +1496,23 @@
     </div>
     <div class="contact-grid">
       <div>
-        <p style="font-size:1.05rem; color:var(--ink-light); margin-bottom:1.5rem; line-height:1.8;">I'm currently open
-          to internship opportunities, freelance projects, and collaborations. Let's build something great together!</p>
+        <p style="font-size:1.05rem; color:var(--ink-light); margin-bottom:1.5rem; line-height:1.8;">I'm currently open to internship opportunities, freelance projects, and collaborations. Let's build something great together!</p>
         <div class="contact-info">
-          <a href="mailto:ujjawalt207@gmail.com" class="contact-card" aria-label="Email Ujjawal Tyagi">
+          <a href="mailto:ujjawalt207@gmail.com" class="contact-card">
             <div class="contact-icon">@</div>
             <div>
               <div class="contact-label">EMAIL</div>
               <div class="contact-val">ujjawalt207@gmail.com</div>
             </div>
           </a>
-          <a href="https://www.linkedin.com/in/ujjawal-tyagi-1399912a5/" target="_blank" class="contact-card" aria-label="LinkedIn Profile">
+          <a href="https://www.linkedin.com/in/ujjawal-tyagi-1399912a5/" target="_blank" class="contact-card">
             <div class="contact-icon">in</div>
             <div>
               <div class="contact-label">LINKEDIN</div>
               <div class="contact-val">linkedin.com/in/ujjawaltyagi</div>
             </div>
           </a>
-          <a href="https://github.com/UjjawalTyagi22" target="_blank" class="contact-card" aria-label="GitHub Profile">
+          <a href="https://github.com/UjjawalTyagi22" target="_blank" class="contact-card">
             <div class="contact-icon">gh</div>
             <div>
               <div class="contact-label">GITHUB</div>
@@ -1709,26 +1528,28 @@
           </a>
         </div>
       </div>
+
       <div class="fade-in">
-        <form class="sketch-form" id="contactForm">
+        <form class="sketch-form" id="contactForm" action="https://formspree.io/f/xwvnrdqn" method="POST">
           <div class="form-group">
             <label class="form-label">YOUR NAME</label>
-            <input type="text" class="form-input" placeholder="John Doe" required>
+            <input type="text" class="form-input" name="name" placeholder="John Doe" required>
           </div>
           <div class="form-group">
             <label class="form-label">EMAIL ADDRESS</label>
-            <input type="email" class="form-input" placeholder="john@example.com" required>
+            <input type="email" class="form-input" name="email" placeholder="john@example.com" required>
           </div>
           <div class="form-group">
             <label class="form-label">SUBJECT</label>
-            <input type="text" class="form-input" placeholder="Let's collaborate!">
+            <input type="text" class="form-input" name="subject" placeholder="Let's collaborate!">
           </div>
           <div class="form-group">
             <label class="form-label">MESSAGE</label>
-            <textarea class="form-textarea" placeholder="Hey Ujjawal, I'd love to work with you on..."></textarea>
+            <textarea class="form-textarea" name="message" placeholder="Hey Ujjawal, I'd love to work with you on..."></textarea>
           </div>
-          <button type="submit" class="btn-submit">SEND MESSAGE</button>
-          <div class="success-msg" id="successMsg">Message sent! I'll get back to you soon.</div>
+          <button type="submit" class="btn-submit" id="submitBtn">SEND MESSAGE</button>
+          <div class="success-msg" id="successMsg">✅ Message sent! I'll get back to you soon.</div>
+          <div class="error-msg" id="errorMsg">❌ Something went wrong. Please email me directly at ujjawalt207@gmail.com</div>
         </form>
       </div>
     </div>
@@ -1738,7 +1559,6 @@
   <footer>
     <div class="footer-text">Designed & Built by Ujjawal Tyagi · 2026</div>
     <div style="display:flex; gap:0.5rem; align-items:center;">
-      <span class="footer-text"></span>
       <a href="#home" class="back-top">BACK TO TOP</a>
     </div>
   </footer>
@@ -1761,7 +1581,7 @@
     }
     type();
 
-    // Consolidated Intersection Observer for fade-in and skill bars
+    // Intersection Observer
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -1804,12 +1624,45 @@
       });
     }
 
-    // Form submit
-    document.getElementById('contactForm').addEventListener('submit', function (e) {
+    // Contact Form — Formspree
+    document.getElementById('contactForm').addEventListener('submit', async function (e) {
       e.preventDefault();
-      document.getElementById('successMsg').style.display = 'block';
-      this.reset();
-      setTimeout(() => document.getElementById('successMsg').style.display = 'none', 4000);
+      const form = this;
+      const submitBtn = document.getElementById('submitBtn');
+      const successMsg = document.getElementById('successMsg');
+      const errorMsg = document.getElementById('errorMsg');
+
+      // Reset messages
+      successMsg.style.display = 'none';
+      errorMsg.style.display = 'none';
+
+      // Disable button while sending
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'SENDING...';
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          successMsg.style.display = 'block';
+          form.reset();
+        } else {
+          errorMsg.style.display = 'block';
+        }
+      } catch (error) {
+        errorMsg.style.display = 'block';
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'SEND MESSAGE';
+        setTimeout(() => {
+          successMsg.style.display = 'none';
+          errorMsg.style.display = 'none';
+        }, 5000);
+      }
     });
   </script>
 </body>
